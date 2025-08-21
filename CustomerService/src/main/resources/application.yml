@@ -1,0 +1,26 @@
+server:
+  port: 8081
+  tomcat:
+    threads:
+      max: 25
+      min-spare: 25
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+    username: xxx
+    password: xxxxxxxxxxxxx
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.OracleDialect
+ #   show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: my-consumer-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
